@@ -1,4 +1,12 @@
 GIT
+  remote: https://github.com/faker-ruby/faker.git
+  revision: 6aecb58a34283f58f40cfb05e2245c55e0439190
+  branch: master
+  specs:
+    faker (2.22.0)
+      i18n (>= 1.8.11, < 2)
+
+GIT
   remote: https://github.com/lynndylanhurley/devise_token_auth
   revision: 1a0483fbd12583810f21eb320abfa8b768724774
   specs:
@@ -107,6 +115,11 @@ GEM
     diff-lcs (1.5.0)
     digest (3.1.0)
     erubi (1.11.0)
+    factory_bot (6.2.1)
+      activesupport (>= 5.0.0)
+    factory_bot_rails (6.2.0)
+      factory_bot (~> 6.2.0)
+      railties (>= 5.0.0)
     globalid (1.0.0)
       activesupport (>= 5.0)
     i18n (1.12.0)
@@ -283,6 +296,8 @@ DEPENDENCIES
   debug
   devise
   devise_token_auth (>= 1.2.0)!
+  factory_bot_rails
+  faker!
   importmap-rails
   jbuilder
   pry
