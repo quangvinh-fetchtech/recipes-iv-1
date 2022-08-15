@@ -1,0 +1,323 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "API V1",
+    "version": "v1"
+  },
+  "paths": {
+    "/api/v1/ratings.json": {
+      "post": {
+        "summary": "create rating",
+        "parameters": [
+          {
+            "name": "access-token",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "client",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "uid",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "security": [
+          {
+            "client": {
+            },
+            "uid": {
+            },
+            "access_token": {
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful"
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "recipe_id": {
+                    "type": "string"
+                  },
+                  "comment": {
+                    "type": "string"
+                  },
+                  "rate_value": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/recipes.json": {
+      "get": {
+        "summary": "list recipes",
+        "responses": {
+          "200": {
+            "description": "successful"
+          }
+        }
+      },
+      "post": {
+        "summary": "Creates a recipe",
+        "parameters": [
+          {
+            "name": "access-token",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "client",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "uid",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "security": [
+          {
+            "client": {
+            },
+            "uid": {
+            },
+            "access_token": {
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "recipe created"
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string"
+                  },
+                  "notes": {
+                    "type": "string"
+                  },
+                  "user_id": {
+                    "type": "string"
+                  },
+                  "steps_attributes": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "description": {
+                          "type": "string"
+                        },
+                        "order": {
+                          "type": "integer"
+                        },
+                        "ingredients_attributes": {
+                          "type": "array",
+                          "items": {
+                            "type": "object",
+                            "properties": {
+                              "name": {
+                                "type": "string"
+                              },
+                              "amount": {
+                                "type": "string"
+                              },
+                              "unit": {
+                                "type": "string"
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/recipes/{id}.json?cooking_mode={cooking_mode}": {
+      "parameters": [
+        {
+          "name": "id",
+          "in": "path",
+          "description": "id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "cooking_mode",
+          "in": "path",
+          "description": "cooking_mode",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        }
+      ],
+      "get": {
+        "summary": "show recipe",
+        "responses": {
+          "200": {
+            "description": "successful"
+          }
+        }
+      }
+    },
+    "/api/v1/auth/sign_up": {
+      "get": {
+        "summary": "new registration",
+        "responses": {
+          "200": {
+            "description": "successful"
+          }
+        }
+      }
+    },
+    "/api/v1/auth/edit": {
+      "get": {
+        "summary": "edit registration",
+        "responses": {
+          "200": {
+            "description": "successful"
+          }
+        }
+      }
+    },
+    "/api/v1/auth": {
+      "delete": {
+        "summary": "delete registration",
+        "responses": {
+          "200": {
+            "description": "successful"
+          }
+        }
+      },
+      "post": {
+        "summary": "create registration",
+        "parameters": [
+
+        ],
+        "responses": {
+          "200": {
+            "description": "successful"
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "email": {
+                    "type": "string"
+                  },
+                  "password": {
+                    "type": "string"
+                  },
+                  "password_confirmation": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/auth/sign_in": {
+      "get": {
+        "summary": "new session",
+        "responses": {
+          "200": {
+            "description": "successful"
+          }
+        }
+      },
+      "post": {
+        "summary": "create session",
+        "parameters": [
+
+        ],
+        "responses": {
+          "200": {
+            "description": "successful"
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "email": {
+                    "type": "string"
+                  },
+                  "password": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "securitySchemes": {
+      "Bearer": {
+        "description": "JWT key necessary to use API calls",
+        "type": "apiKey",
+        "name": "Authorization",
+        "in": "header"
+      }
+    }
+  },
+  "servers": [
+    {
+      "url": "http://{defaultHost}",
+      "variables": {
+        "defaultHost": {
+          "default": "localhost:3000"
+        }
+      }
+    }
+  ]
+}
