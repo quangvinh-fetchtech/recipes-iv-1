@@ -34,6 +34,7 @@ gem 'devise_token_auth', '>= 1.2.0', git: "https://github.com/lynndylanhurley/de
 gem 'rswag'
 gem 'factory_bot_rails'
 gem 'faker', :git => 'https://github.com/faker-ruby/faker.git', :branch => 'master'
+gem 'ruby-units'
 
 # Use Kredis to get higher-level data types in Redis [https://github.com/rails/kredis]
 # gem "kredis"
