@@ -5,6 +5,27 @@
     "version": "v1"
   },
   "paths": {
+    "/api/v1/ratings.json?recipe_id={recipe_id}": {
+      "parameters": [
+        {
+          "name": "recipe_id",
+          "in": "path",
+          "description": "Enter recipe_id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        }
+      ],
+      "get": {
+        "summary": "list ratings",
+        "responses": {
+          "200": {
+            "description": "successful"
+          }
+        }
+      }
+    },
     "/api/v1/ratings.json": {
       "post": {
         "summary": "create rating",

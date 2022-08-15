@@ -4,11 +4,15 @@ class Api::V1::RatingsController < ApplicationController
 
   # GET /ratings or /ratings.json
   def index
-    @ratings = Rating.where(pecipe_id: params[:pecipe_id]).all
+    @ratings = Rating.where(recipe_id: params[:recipe_id])
   end
 
   # GET /ratings/1 or /ratings/1.json
   def show
+  end
+
+  def index
+    @ratings = Rating.where(recipe_id: params[:recipe_id])
   end
 
   # GET /ratings/new
