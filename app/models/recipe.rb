@@ -15,8 +15,12 @@ class Recipe < ApplicationRecord
   def ingredients_converted
     ingredients.each do |ingredient|
       if conver_to_unit.present?
-        unit = Unit.new("#{ingredient.amount} #{ingredient.unit}")
-        ingredient.unit_processed = unit.convert_to(conver_to_unit)
+        begin 
+          unit = Unit.new("#{ingredient.amount} #{ingredient.unit}")
+          ingredient.unit_processed = unit.convert_to(conver_to_unit)
+        rescue
+          ingredient.unit_processed = "cant convert_to #{conver_to_unit}"
+        end
       else
         ingredient.unit_processed = "#{ingredient.amount} #{ingredient.unit}"
       end
