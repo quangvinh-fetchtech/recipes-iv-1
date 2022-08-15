@@ -28,7 +28,6 @@ RSpec.describe 'api/v1/recipes.json', type: :request do
         properties: {
           name: { type: :string },
           notes: { type: :string },
-          user_id: { type: :string },
           steps_attributes: {
             "type": "array",
             "items": {
@@ -51,7 +50,7 @@ RSpec.describe 'api/v1/recipes.json', type: :request do
             }
           }
         }
-      }
+      }, description: 'choose unit need convert pound, ounce, gram, cup, tablespoon, teaspoon'
       # security [Bearer: {}]
       security [client: {}, uid: {}, access_token:  {}]
       # new_auth_header = create_auth_header_from_scratch
