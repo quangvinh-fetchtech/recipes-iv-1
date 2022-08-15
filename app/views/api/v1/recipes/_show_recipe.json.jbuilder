@@ -1,4 +1,4 @@
-json.extract! recipe, :id, :name, :notes, :created_at, :updated_at, :current_step
+json.extract! recipe, :id, :name, :notes, :created_at, :updated_at, :current_cooking_step
 json.cooking_steps recipe.steps if recipe.cooking_mode
 
 json.author do 

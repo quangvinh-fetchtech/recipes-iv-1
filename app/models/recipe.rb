@@ -4,7 +4,7 @@ class Recipe < ApplicationRecord
   has_many :ingredients, through: :steps
   attr_accessor :conver_to_unit
   attr_accessor :cooking_mode
-  attr_accessor :current_step
+  attr_accessor :current_cooking_step
 
   accepts_nested_attributes_for :steps, reject_if: :reject_steps, allow_destroy: true
   
