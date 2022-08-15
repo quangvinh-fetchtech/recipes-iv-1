@@ -11,6 +11,7 @@ class Api::V1::RecipesController < ApplicationController
 
   # GET /recipes/1 or /recipes/1.json
   def show
+    @recipe_result = Recipes::Show.call(recipe_params: recipe_params).result
   end
 
   # GET /recipes/new
@@ -67,19 +68,19 @@ class Api::V1::RecipesController < ApplicationController
     end
 
     # Use callbacks to share common setup or constraints between actions.
-    def show_recipe
-      @cooking_mode = params[:cooking_mode] == "1"
-      return cooking_mode if params[:cooking_mode] == "1"
-      non_cooking_mode
-    end
+    # def show_recipe
+    #   @cooking_mode = params[:cooking_mode] == "1"
+    #   return cooking_mode if params[:cooking_mode] == "1"
+    #   non_cooking_mode
+    # end
 
-    def cooking_mode 
-      @recipe = Recipe.includes(:steps, :ingredients, :author).find(params[:id])
-    end
+    # def cooking_mode 
+    #   @recipe = Recipe.includes(:steps, :ingredients, :author).find(params[:id])
+    # end
 
-    def non_cooking_mode
-      @recipe = Recipe.includes(:ingredients, :author).find(params[:id])
-    end
+    # def non_cooking_mode
+    #   @recipe = Recipe.includes(:ingredients, :author).find(params[:id])
+    # end
 
     # Only allow a list of trusted parameters through.
     def recipe_params
