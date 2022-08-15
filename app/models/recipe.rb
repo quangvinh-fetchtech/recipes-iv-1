@@ -2,6 +2,8 @@ class Recipe < ApplicationRecord
   belongs_to :author, class_name: "User", foreign_key: "user_id"
   has_many :steps, dependent: :destroy
   has_many :ingredients, through: :steps
+  attr_accessor :conver_to_unit
+  attr_accessor :cooking_mode
 
   accepts_nested_attributes_for :steps, reject_if: :reject_steps, allow_destroy: true
   
@@ -9,11 +11,11 @@ class Recipe < ApplicationRecord
     attributes['description'].blank?
   end
 
-  def ingredients_converted to_unit
-    ingredients.map do |ingredient|
-      if to_unit
+  def ingredients_converted
+    ingredients.each do |ingredient|
+      if conver_to_unit.present?
         unit = Unit.new("#{ingredient.amount} #{ingredient.unit}")
-        ingredient.unit_processed = unit.convert_to(to_unit)
+        ingredient.unit_processed = unit.convert_to(conver_to_unit)
       else
         ingredient.unit_processed = "#{ingredient.amount} #{ingredient.unit}"
       end
