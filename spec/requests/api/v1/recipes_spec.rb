@@ -127,7 +127,7 @@ RSpec.describe 'api/v1/recipes.json', type: :request do
     # You'll want to customize the parameter types...
     parameter name: 'id', in: :path, type: :string, description: 'id'
     parameter name: 'cooking_mode', in: :path, type: :string, description: 'choose cooking mode'
-    parameter name: 'conver_to_unit', in: :path, type: :string, description: 'choose unit need convert'
+    parameter name: 'conver_to_unit', in: :path, type: :string, description: 'choose unit need convert pound, ounce, gram, cup, tablespoon, teaspoon'
 
     get('show recipe') do
       response(200, 'successful') do
