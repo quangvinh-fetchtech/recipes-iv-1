@@ -2,23 +2,6 @@ require 'swagger_helper'
 
 RSpec.describe 'devise_token_auth/registrations', type: :request do
 
-  path '/api/v1/auth/cancel' do
-
-    get('cancel registration') do
-      response(200, 'successful') do
-
-        after do |example|
-          example.metadata[:response][:content] = {
-            'application/json' => {
-              example: JSON.parse(response.body, symbolize_names: true)
-            }
-          }
-        end
-        run_test!
-      end
-    end
-  end
-
   path '/api/v1/auth/sign_up' do
 
     get('new registration') do
@@ -54,34 +37,6 @@ RSpec.describe 'devise_token_auth/registrations', type: :request do
   end
 
   path '/api/v1/auth' do
-
-    patch('update registration') do
-      response(200, 'successful') do
-
-        after do |example|
-          example.metadata[:response][:content] = {
-            'application/json' => {
-              example: JSON.parse(response.body, symbolize_names: true)
-            }
-          }
-        end
-        run_test!
-      end
-    end
-
-    put('update registration') do
-      response(200, 'successful') do
-
-        after do |example|
-          example.metadata[:response][:content] = {
-            'application/json' => {
-              example: JSON.parse(response.body, symbolize_names: true)
-            }
-          }
-        end
-        run_test!
-      end
-    end
 
     delete('delete registration') do
       response(200, 'successful') do
