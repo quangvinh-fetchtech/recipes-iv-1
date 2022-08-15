@@ -123,10 +123,12 @@ RSpec.describe 'api/v1/recipes.json', type: :request do
   #   end
   # end
 
-  path '/api/v1/recipes/{id}.json?cooking_mode={cooking_mode}' do
+  path '/api/v1/recipes/{id}.json?cooking_mode={cooking_mode}&conver_to_unit={conver_to_unit}' do
     # You'll want to customize the parameter types...
     parameter name: 'id', in: :path, type: :string, description: 'id'
-    parameter name: 'cooking_mode', in: :path, type: :string, description: 'cooking_mode'
+    parameter name: 'cooking_mode', in: :path, type: :string, description: 'choose cooking mode'
+    parameter name: 'conver_to_unit', in: :path, type: :string, description: 'choose unit need convert'
+
     get('show recipe') do
       response(200, 'successful') do
         let(:id) { '123' }
