@@ -188,7 +188,7 @@
         }
       }
     },
-    "/api/v1/recipes/{id}.json?cooking_mode={cooking_mode}&conver_to_unit={conver_to_unit}": {
+    "/api/v1/recipes/{id}.json?cooking_mode={cooking_mode}&conver_to_unit={conver_to_unit}&order={order}": {
       "parameters": [
         {
           "name": "id",
@@ -203,6 +203,15 @@
           "name": "cooking_mode",
           "in": "path",
           "description": "choose cooking mode",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "order",
+          "in": "path",
+          "description": "enter order 0, 1, 2, 3",
           "required": true,
           "schema": {
             "type": "string"
