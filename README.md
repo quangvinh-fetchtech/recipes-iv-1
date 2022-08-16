@@ -1,7 +1,7 @@
 # README
 
 * Step To Tests
-1. start server
+1. start server rails s
 2. Access http://localhost:3000/api-docs/index.html
 3. create Registration with email
 ```
